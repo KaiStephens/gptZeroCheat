@@ -6,11 +6,11 @@ A Python tool that converts text through multiple translation steps and AI proce
 
 ## Overview
 
-This program processes text through multiple stages:
-- GPT-4 processing for simplification
-- Multi-language translation pipeline
-- Automatic text typing functionality
-- Whitespace adjustment
+You can either download the python file (installation)
+
+
+
+
 
 ## Requirements
 
