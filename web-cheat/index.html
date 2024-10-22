@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Processor</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Text Processor</h1>
+        
+        <div class="input-group">
+            <label for="apiKey">OpenAI API Key:</label>
+            <input type="text" id="apiKey" placeholder="Enter your OpenAI API key">
+        </div>
+
+        <div class="input-group">
+            <label for="inputText">Enter text:</label>
+            <textarea id="inputText" rows="5" placeholder="Enter the text you want to process"></textarea>
+        </div>
+
+        <button onclick="processText()">Process Text</button>
+        <div id="loading" class="loading">Processing...</div>
+        <div id="output"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
