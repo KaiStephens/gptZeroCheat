@@ -8,7 +8,7 @@ A Python tool that converts text through multiple translation steps and AI proce
 
 You can either download the python file (installation)
 
-Or go to 
+Or go to  (https://kaistephens.github.io/gptZeroCheat/web-cheat/index.html)
 
 # Python installation
 
