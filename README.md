@@ -72,8 +72,3 @@ python3 gptZeroCheat.py
 - Internet connection required for translation services
 - The program uses GPT-4o-mini model by default
 
-[License information should be added here]
-
-## Contact
-
-[Contact information should be added here]
