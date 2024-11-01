@@ -1,3 +1,4 @@
+let extraSpacingEnabled = true;
 
 async function translate(text, sourceLang, targetLang) {
     try {
@@ -38,7 +39,6 @@ async function callOpenAI(text, apiKey) {
                 }]
             })
         });
-
         const data = await response.json();
         if (data.choices && data.choices[0]) {
             return data.choices[0].message.content;
@@ -53,7 +53,22 @@ async function callOpenAI(text, apiKey) {
 
 function addWhiteSpace(text) {
     console.log("replacing whitespace");
-    return text.replace(/ /g, "  ");
+    return extraSpacingEnabled ? text.replace(/ /g, "  ") : text;
+}
+
+function toggleExtraSpacing() {
+    extraSpacingEnabled = !extraSpacingEnabled;
+    const button = document.getElementById('toggleSpacing');
+    button.textContent = `Extra Spacing: ${extraSpacingEnabled ? 'ON' : 'OFF'}`;
+    button.classList.toggle('spacing-off', !extraSpacingEnabled);
+    
+    // Reprocess the output if there's already text
+    const output = document.getElementById('output');
+    if (output.textContent) {
+        output.textContent = extraSpacingEnabled ? 
+            output.textContent.replace(/ /g, "  ") : 
+            output.textContent.replace(/  /g, " ");
+    }
 }
 
 async function processText() {
@@ -61,15 +76,15 @@ async function processText() {
     const output = document.getElementById('output');
     const text = document.getElementById('inputText').value;
     const apiKey = document.getElementById('apiKey').value;
-
+    
     if (!text || !apiKey) {
         alert('Please enter both text and API key');
         return;
     }
-
+    
     loading.style.display = 'block';
     output.textContent = '';
-
+    
     try {
         const openAIResult = await callOpenAI(text, apiKey);
         const humanizedResult = await humanizeText(openAIResult);
