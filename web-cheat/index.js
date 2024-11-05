@@ -32,7 +32,7 @@ async function callOpenAI(text, apiKey) {
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-4",
+                model: "gpt-4o-mini",
                 messages: [{
                     role: "user",
                     content: "I need you to make this text with simple language a foreigner would easily understand while talking like a human, re-write this text, ONLY return the re-written text: " + text
